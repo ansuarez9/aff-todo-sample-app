@@ -1,0 +1,18 @@
+<mat-selection-list #todos>
+    <mat-list-option *ngFor="let todo of todoList" [selected]="todo.completed" (click)="onTodoClick(todo)" [value]="todo.id" [checkboxPosition]="'before'">
+      {{todo.title}}
+      <em class="userId pt-1">UserId: {{todo.userId}}</em>
+      <div class="buttonGroup">
+        <span class="editBtn">
+            <button mat-mini-fab color="basic" (click)="todoEdit($event, todo)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </span>
+          <span class="deleteBtn">
+            <button mat-mini-fab color="warn" (click)="remove(todo.id)">
+              <mat-icon>remove</mat-icon>
+            </button>
+          </span>
+      </div>
+    </mat-list-option>
+  </mat-selection-list>
